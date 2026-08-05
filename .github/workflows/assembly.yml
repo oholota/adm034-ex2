@@ -60,7 +60,7 @@ jobs:
           retention-days: 1
 
   test_car:
-    needs: start
+    needs: build_car
     runs-on: ubuntu-latest
     container: ubuntu:22.04
     steps:
