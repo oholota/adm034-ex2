@@ -9,6 +9,7 @@ jobs:
   build_car:
     needs: start
     runs-on: ubuntu-latest
+    container: ubuntu:22.04
     steps:
       - name: Assemble car
         run: |
@@ -34,6 +35,7 @@ jobs:
   build_motorbike:
     needs: start
     runs-on: ubuntu-latest
+    container: ubuntu:22.04
     steps:
       - name: Assemble motorbike
         run: |
@@ -58,8 +60,9 @@ jobs:
           retention-days: 1
 
   test_car:
-    needs: build_car
+    needs: start
     runs-on: ubuntu-latest
+    container: ubuntu:22.04
     steps:
       - name: Download car artifact
         uses: actions/download-artifact@v7
